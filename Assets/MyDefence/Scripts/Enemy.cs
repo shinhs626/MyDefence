@@ -6,9 +6,12 @@ namespace MyDefence
     {
         //필드
         #region Field
-        private float speed = 10f;
+        //속도
+        public float speed = 4f;
 
-        private Vector3 targetPosition;
+        //waypoint 오브젝트의 트랜스폼 객체
+        private Transform target;
+        //waypoint 배열의 인덱스
         private int wayPointIndex = 0;
         #endregion
 
@@ -17,24 +20,35 @@ namespace MyDefence
         {
             //초기화
             wayPointIndex = 0;
-            targetPosition = WayPoints.wayPoints[wayPointIndex].position;
+            target = WayPoints.wayPoints[wayPointIndex];
         }
 
         // Update is called once per frame
         void Update()
         {
             // 이동 구현
-            Vector3 dir = targetPosition - this.transform.position;
+            Vector3 dir = target.position - this.transform.position;
             transform.Translate(dir.normalized * Time.deltaTime * speed, Space.World);
 
-            // targetPosition 도착 판정 확인
-            float distance = Vector3.Distance(targetPosition, this.transform.position);
+            // target 도착 판정 확인
+            float distance = Vector3.Distance(target.position, this.transform.position);
             if (distance <= 0.1f)
             {
-                Debug.Log("도착");
                 // 다음 타겟 셋팅
-                targetPosition = WayPoints.wayPoints[wayPointIndex+1].position;
+                GetNextTarget();
             }
+        }
+        //다음 타겟포지션 얻어오기
+        void GetNextTarget()
+        {
+            if(wayPointIndex == WayPoints.wayPoints.Length - 1)
+            {
+                Debug.Log($"종점 도착");
+                Destroy(this.gameObject);
+                return;
+            }
+            wayPointIndex++;
+            target = WayPoints.wayPoints[wayPointIndex];
         }
     }
 

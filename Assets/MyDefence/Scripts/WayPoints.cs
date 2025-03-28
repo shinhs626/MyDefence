@@ -2,6 +2,7 @@ using UnityEngine;
 
 namespace MyDefence
 {
+    //WayPoint들의 정보를 가져오는 클래스
     public class WayPoints : MonoBehaviour
     {
         #region Field
