@@ -9,7 +9,10 @@ namespace MyDefence
         //타겟 오브젝트
         private Transform target;
         //이동 속도
-        private float moveSpeed = 70f;
+        public float moveSpeed = 70f;
+
+        //타격 이펙트
+        public GameObject bulletImpactPrefab;
         #endregion
 
         public void SetTarget(Transform target)
@@ -41,6 +44,10 @@ namespace MyDefence
         //타겟을 맞추다
         void HitTarget()
         {
+            //타격 이펙트 효과
+            GameObject effectBullet = Instantiate(bulletImpactPrefab, this.transform.position, Quaternion.identity);
+            Destroy(effectBullet, 2f);
+
             Debug.Log("HitTarget!!!");
             //타겟 게임 오브젝트 킬
             Destroy(target.gameObject);
