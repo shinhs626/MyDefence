@@ -39,13 +39,19 @@ namespace MyDefence
         private void Start()
         {
             //초기화
-            towerToBuild = machineGunPrefab;
+            //towerToBuild = machineGunPrefab;
         }
 
         //타일에 설치할 타워 프리팹 오브젝트 얻어오기
         public GameObject GetTowerToBuild()
         {
             return towerToBuild;
+        }
+
+        //타일에 설치할 타워 프리팹 오브젝트 저장하기
+        public void SetTowerToBuild(GameObject tower)
+        {
+            towerToBuild = tower;
         }
     }
 
