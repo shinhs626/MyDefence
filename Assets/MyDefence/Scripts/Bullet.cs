@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace MyDefence
 {
-    //탄환(발사체)를 관리하는 클래스
+    //모든 탄환(발사체)를 관리하는 클래스
     public class Bullet : MonoBehaviour
     {
         #region Field
@@ -28,10 +28,10 @@ namespace MyDefence
                 Destroy(this.gameObject);
                 return;
             }
-
+            //회전
+            Vector3 dir = target.position - this.transform.position;
             //이동하기
             //dir.magnitude : 두 벡터간의 거리
-            Vector3 dir = target.position - this.transform.position;    
             float distanceThisFrame = Time.deltaTime * moveSpeed;   //이번 프레임에 이동하는 거리
             if(dir.magnitude <= distanceThisFrame)
             {
@@ -42,7 +42,7 @@ namespace MyDefence
             this.transform.Translate(dir.normalized * Time.deltaTime * moveSpeed);
         }
         //타겟을 맞추다
-        void HitTarget()
+        public virtual void HitTarget()
         {
             //타격 이펙트 효과
             GameObject effectBullet = Instantiate(bulletImpactPrefab, this.transform.position, Quaternion.identity);

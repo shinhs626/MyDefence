@@ -18,7 +18,7 @@ namespace MyDefence
         public Material changeMaterial;
 
         //타일의 Renderer
-        private Renderer renderer;
+        private new Renderer renderer;
 
         private BuildManager buildManager;
 

@@ -4,9 +4,9 @@ using UnityEngine;
 namespace MyDefence
 {
     //MachineGunTower를 관리하는 클래스
-    public class MachineGunTower : Tower
+    public class MissileTower : Tower
     {
-        //MachineGunTower 고유 기능
+        //MissileTower 고유 기능
     }
 
 }
