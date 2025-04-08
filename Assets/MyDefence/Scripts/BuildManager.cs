@@ -33,8 +33,8 @@ namespace MyDefence
         private GameObject towerToBuild;
 
         //타워 프리팹
-        public GameObject machineGunPrefab;
-        public GameObject MissilePrefab;
+        //public GameObject machineGunPrefab;
+        //public GameObject MissilePrefab;
         #endregion
 
         private void Start()

@@ -15,6 +15,7 @@ namespace MyDefence
         public GameObject bulletImpactPrefab;
         #endregion
 
+        //생성자
         public void SetTarget(Transform target)
         {
             this.target = target;
