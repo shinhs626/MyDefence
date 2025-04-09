@@ -7,7 +7,7 @@ namespace MyDefence
     {
         #region Field
         //소지금
-        private static int money;
+        public static int money = 400;
 
         #endregion
 
@@ -22,7 +22,7 @@ namespace MyDefence
         //소지금 초기값 400
         public void Start()
         {
-            money += 400;
+            
         }
 
         public static void AddMoney(int amount)
@@ -33,9 +33,10 @@ namespace MyDefence
         {
             if(money < amount)
             {
+                Debug.Log($"소지금이 부족합니다. 현재 소지금 : {money}");
                 return false;
             }
-            money += amount; 
+            money -= amount; 
             return true;
         }
         public static bool CheckMoney(int amount)
