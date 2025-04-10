@@ -1567,6 +1567,7 @@ GameObject:
   - component: {fileID: 648219932}
   - component: {fileID: 648219934}
   - component: {fileID: 648219933}
+  - component: {fileID: 648219935}
   m_Layer: 5
   m_Name: EnergyText
   m_TagString: Untagged
@@ -1591,7 +1592,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 35, y: -95}
-  m_SizeDelta: {x: 50, y: 60}
+  m_SizeDelta: {x: 150, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &648219933
 MonoBehaviour:
@@ -1613,9 +1614,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '12
-
-'
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1694,6 +1693,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 648219931}
   m_CullTransparentMesh: 1
+--- !u!114 &648219935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 648219931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c3c6437b5ba3c3468bf7a18b12be798, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moneyText: {fileID: 648219933}
 --- !u!1001 &648926045
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1860,6 +1872,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 476968134}
     m_Modifications:
+    - target: {fileID: -5512041264601932938, guid: fda2b68c078f3a64c856617a6a46ec2d, type: 3}
+      propertyPath: changeMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: a968ec613e63e874698c28b3fdce8f49, type: 2}
     - target: {fileID: 2841318737609824735, guid: fda2b68c078f3a64c856617a6a46ec2d, type: 3}
       propertyPath: m_Name
       value: MapTile
@@ -2285,6 +2301,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 796e694fab8ec9e4fa35e5a7a41a0d81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startMoney: 400
+  livesText: {fileID: 2103078212}
 --- !u!1001 &1081636123
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2404,9 +2422,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '12
-
-'
+  m_text: 250
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2837,7 +2853,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '12
+  m_text: '100
 
 '
   m_isRightToLeft: 0
@@ -3995,8 +4011,8 @@ MonoBehaviour:
   m_Padding:
     m_Left: 10
     m_Right: 10
-    m_Top: 10
-    m_Bottom: 10
+    m_Top: 5
+    m_Bottom: 5
   m_ChildAlignment: 1
   m_Spacing: 5
   m_ChildForceExpandWidth: 0
@@ -4572,7 +4588,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 35, y: -35}
-  m_SizeDelta: {x: 50, y: 60}
+  m_SizeDelta: {x: 150, y: 60}
   m_Pivot: {x: 0.5000002, y: 0.5}
 --- !u!114 &2103078212
 MonoBehaviour:

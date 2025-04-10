@@ -13,6 +13,9 @@ namespace MyDefence
 
         //타격 이펙트
         public GameObject bulletImpactPrefab;
+
+        //공격 데미지
+        [SerializeField] protected float attackDamage = 50f;
         #endregion
 
         //생성자
@@ -40,7 +43,10 @@ namespace MyDefence
                 return;
             }
 
-            this.transform.Translate(dir.normalized * Time.deltaTime * moveSpeed);
+            this.transform.Translate(dir.normalized * Time.deltaTime * moveSpeed, Space.World);
+
+            //타겟을 바라보며 이동하기
+            transform.LookAt(target);
         }
         //타겟을 맞추다
         public virtual void HitTarget()
@@ -50,10 +56,23 @@ namespace MyDefence
             Destroy(effectBullet, 2f);
 
             Debug.Log("HitTarget!!!");
-            //타겟 게임 오브젝트 킬
-            Destroy(target.gameObject);
+
+            //타겟에게 데미지 주기
+            Damage(target);
+
             //탄환 게임 오브젝트 킬
             Destroy(this.gameObject);
+        }
+
+        //매개변수로 들어온 타겟에게 데미지 주기
+        protected void Damage(Transform target)
+        {
+            //attackDamage만큼 타겟의 Health 감산
+            Enemy enemy = target.GetComponent<Enemy>();
+            if(enemy != null)
+            {
+                enemy.TakeDamage(attackDamage);
+            }
         }
     }
 

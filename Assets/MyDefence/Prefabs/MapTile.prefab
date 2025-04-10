@@ -121,4 +121,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6011e680d5c7abb408d6d7e4fc70ba9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moneyMaterial: {fileID: 2100000, guid: 9246cf7e111d16d468735954772b617c, type: 2}
   changeMaterial: {fileID: 2100000, guid: a968ec613e63e874698c28b3fdce8f49, type: 2}
+  buildEffectPrefab: {fileID: 4402200367932394241, guid: eb3d3594aafa8a0429a346892d524f65, type: 3}
