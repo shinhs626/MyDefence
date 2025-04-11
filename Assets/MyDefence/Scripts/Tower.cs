@@ -8,10 +8,11 @@ namespace MyDefence
         //공격 범위
         public float attackRange = 7f;
         //가장 가까운 적
-        private Transform target;
+        protected Transform target;
+        protected Enemy targetEnemy;
         //타이머 구현
-        private float updateTimer = 0.5f;   //몇 초 마다 실행시킬건지
-        private float countdown = 0f;    //countdown
+        //private float updateTimer = 0.5f;   //몇 초 마다 실행시킬건지
+        //private float countdown = 0f;    //countdown
 
         //Enemy tag
         public string enemyTag = "Enemy";
@@ -34,10 +35,10 @@ namespace MyDefence
         void Start()
         {
             //UpdateTarget 함수를 즉시 0.5초 마다 반복해서 호출한다
-            //InvokeRepeating("UpdateTarget", 0f, 0.5f);
+            InvokeRepeating("UpdateTarget", 0f, 0.1f);
         }
         //가장 가까운 적 찾기
-        private void UpdateTarget()
+        protected void UpdateTarget()
         {
             GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
 
@@ -57,24 +58,26 @@ namespace MyDefence
             if (nearEnemy != null && minDistance <= attackRange)
             {
                 target = nearEnemy.transform;
+                targetEnemy = target.GetComponent<Enemy>();
             }
             else
             {
                 target = null;
+                targetEnemy = null;
             }
         }
 
-        void Update()
+        protected virtual void Update()
         {
             //0.5초마다 함수 실행시키기 코드(타이머 구현)
-            countdown += Time.deltaTime;
-            if (countdown >= updateTimer)
-            {
-                //가장 가까운 적 찾기
-                UpdateTarget();
-                //타이머 초기화
-                countdown = 0f;
-            }
+            //countdown += Time.deltaTime;
+            //if (countdown >= updateTimer)
+            //{
+            //    //가장 가까운 적 찾기
+            //    UpdateTarget();
+            //    //타이머 초기화
+            //    countdown = 0f;
+            //}
 
             if (target == null)
             {
@@ -105,7 +108,7 @@ namespace MyDefence
             }
         }
 
-        void LockOn()
+        protected void LockOn()
         {
             //터렛 헤드 회전
             Vector3 dir = target.position - this.transform.position;

@@ -8,7 +8,7 @@ public class IntailzedTest : MonoBehaviour
     void Start()
     {
         //start 함수에서 초기화
-        number = 20;
+        //number = 20;
     }
 
     // Update is called once per frame
