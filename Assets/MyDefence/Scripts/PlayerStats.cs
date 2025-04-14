@@ -19,6 +19,9 @@ namespace MyDefence
         [SerializeField]  private readonly int startLives = 10;
 
         public TextMeshProUGUI livesText;
+
+        [SerializeField] private readonly int startRound = 0;
+        public static int round;
         #endregion
 
         #region Property
@@ -30,6 +33,10 @@ namespace MyDefence
         public static int Lives
         {
             get { return lives ; }
+        }
+        public static int Rounds
+        {
+            get { return round; }
         }
         #endregion
 
@@ -75,11 +82,13 @@ namespace MyDefence
             lives -= amount;
             if (lives <= 0)
             {
-                Debug.Log("생명력이 다 소진되었습니다.");
+                //게임 오버 UI활성화
                 return false;
             }
             return true;
         }
+
+        //public static void 
     }
 
 }

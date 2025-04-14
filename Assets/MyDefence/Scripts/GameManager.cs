@@ -8,14 +8,45 @@ namespace MyDefence
         #region Field
         //치트 체크
         [SerializeField] private bool isCheat = false;
+
+        public GameObject gameOverUI;
+
+        private static bool isGameOver = false;
+
+        public GameObject pauseUI;
+        #endregion
+
+        #region Property
+        public static bool IsGameOver
+        {
+            get { return isGameOver; }
+        }
         #endregion
 
         private void Update()
         {
+            //GameOver Check
+            //if (isGameOver)
+            //    return;
+
+            if(PlayerStats.Lives <= 0)
+            {
+                GameOver();
+            }
+
             //Cheating
             if (Input.GetKeyDown(KeyCode.M))
             {
                 ShowMeTheMoney();
+            }
+
+            if (Input.GetKeyDown(KeyCode.O) && isCheat == true)
+            {
+                GameOver();
+            }
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                PauseUI();
             }
         }
 
@@ -27,6 +58,25 @@ namespace MyDefence
                 return;
             PlayerStats.AddMoney(100000);
         }
+        void GameOver()
+        {
+            /* if (gameOver.activeSelf == false)
+             {
+                 gameOver.SetActive(true);
+             }
+             else
+             {
+                 gameOver.SetActive(false);
+             }*/
+            isGameOver = true;
+            gameOverUI.SetActive(!gameOverUI.activeSelf);
+        }
+
+        void PauseUI()
+        {
+            pauseUI.SetActive(!pauseUI.activeSelf);
+        }
+
 
         //레벨 치트
         void LevelUpCheat()

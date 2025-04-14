@@ -16,26 +16,29 @@ namespace MyDefence
         public float scrollMax = 40f;
 
         //카메라 컨트롤 제어 유무 ( true 이면 못움직임, false면 움직임)
-        public bool isCannotMove =false;
+        public bool isCannotMove = false;
         #endregion
 
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
         {
-
+            isCannotMove = false;
         }
 
         // Update is called once per frame
         void Update()
         {
+            if (GameManager.IsGameOver)
+                return;
+
             if (Input.GetKey(KeyCode.Escape))
             {
                 isCannotMove = !isCannotMove;
             }
 
             //isCannotMove가 true이면 return 아래 코드를 실행하지 마라
-            if (isCannotMove)
-                return;
+            //if (isCannotMove)
+            //    return;
 
             //W,A,S,D 키 ( 또는 키보드의 상하좌우 화살표 ) 값을 받아
             if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
