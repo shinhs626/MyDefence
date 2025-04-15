@@ -38,6 +38,10 @@ namespace MyDefence
         //타워 프리팹
         //public GameObject machineGunPrefab;
         //public GameObject MissilePrefab;
+
+        public TileUI tileUI;
+        //선택된 타일
+        private Tile selectTile;
         #endregion
 
         #region Property
@@ -70,6 +74,27 @@ namespace MyDefence
         public void SetTowerToBuild(TowerBluePrint tower)
         {
             towerToBuild = tower;
+        }
+
+        //타워가 설치된 타일 선택
+        public void SelectTile(Tile tile)
+        {
+            
+            if (selectTile == tile)
+            {
+                DeSelectTile();
+                selectTile = null;
+                return;
+            }
+            selectTile = tile;
+            tileUI.ShowTileUI(selectTile);
+
+        }
+
+        public void DeSelectTile()
+        {
+            tileUI.HideTileUI();
+            selectTile = null;
         }
     }
 

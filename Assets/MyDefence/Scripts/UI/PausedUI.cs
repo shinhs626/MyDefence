@@ -35,6 +35,10 @@ namespace MyDefence
                 Time.timeScale = 1f;
             }
         }
+        public void Continue()
+        {
+            Toggle();  // 다시 게임 재개
+        }
 
         public void Retry()
         {

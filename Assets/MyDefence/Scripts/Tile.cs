@@ -30,9 +30,17 @@ namespace MyDefence
         private GameObject tower;
 
         //타일에 설치한 타워의 정보
-        private TowerBluePrint bluePrint;
+        public TowerBluePrint bluePrint;
 
-        
+        #endregion
+
+        #region Property
+        //타워 업그레이드 여부
+        public bool IsUpgrade
+        {
+            get;
+            private set;
+        }
         #endregion
 
         // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -52,19 +60,18 @@ namespace MyDefence
                 return;
             }
 
+            // 현재 타일에 타워오브젝트가 설치되어있는지
+            if (tower != null)
+            {
+                buildManager.SelectTile(this);
+                return;
+            }
+
             if (buildManager.CannotBuild)
             {
                 Debug.Log("설치하실 터렛을 선택해주세요");
                 return;
             }
-
-            //현재 타일에 타워오브젝트가 설치되어있는지
-            if (tower != null)
-            {
-                Debug.Log("이미 터렛이 설치되어있습니다.");
-                return;
-            }
-
             //타워 건설
             BuildTower();
         }
@@ -92,6 +99,37 @@ namespace MyDefence
             //건설하고 남은돈
             Debug.Log($"현재 비용 : {PlayerStats.money}");
         }
+
+        //타워 업그레이드
+        public void UpgradeTower()
+        {
+            if (PlayerStats.CheckMoney(bluePrint.upgradeCost) == false || IsUpgrade == true)
+            {
+                return;
+            }
+
+            //건설할 타워의 정보를 저장
+            PlayerStats.UseMoney(bluePrint.upgradeCost);
+
+            //기존 설치된 타워 킬
+            Destroy(tower);
+
+            IsUpgrade = true;
+
+            //Instantiate(towerPrefab, this.transform.position, Quaternion.identity);
+            tower = Instantiate(bluePrint.upgradePrefab, this.transform.position, Quaternion.identity);
+
+            //타워 건설 이펙트 실행 후 2초후 삭제
+            GameObject effectGo = Instantiate(buildEffectPrefab, this.transform.position, Quaternion.identity);
+            Destroy(effectGo, 2f);
+
+            //초기화 - 저장된 타워 프리팹 초기화
+            buildManager.SetTowerToBuild(null);
+
+            //건설하고 남은돈
+            Debug.Log($"현재 비용 : {PlayerStats.money}");
+        }
+
         private void OnMouseEnter()
         {
             if (EventSystem.current.IsPointerOverGameObject() == true)

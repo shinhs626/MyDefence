@@ -12,8 +12,6 @@ namespace MyDefence
         public GameObject gameOverUI;
 
         private static bool isGameOver = false;
-
-        public GameObject pauseUI;
         #endregion
 
         #region Property
@@ -49,10 +47,6 @@ namespace MyDefence
             {
                 GameOver();
             }
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                PauseUI();
-            }
         }
 
         //Cheating
@@ -76,13 +70,6 @@ namespace MyDefence
             isGameOver = true;
             gameOverUI.SetActive(true);
         }
-
-        void PauseUI()
-        {
-            pauseUI.SetActive(!pauseUI.activeSelf);
-        }
-
-
         //레벨 치트
         void LevelUpCheat()
         {
