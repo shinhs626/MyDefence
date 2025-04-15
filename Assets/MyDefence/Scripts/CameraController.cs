@@ -31,14 +31,17 @@ namespace MyDefence
             if (GameManager.IsGameOver)
                 return;
 
-            if (Input.GetKey(KeyCode.Escape))
-            {
-                isCannotMove = !isCannotMove;
-            }
-
-            //isCannotMove가 true이면 return 아래 코드를 실행하지 마라
-            //if (isCannotMove)
-            //    return;
+            /*//esc key를 한번 누르면 카메라 이동을 못하게 막는다 isCannotMove = true (!isCannotMove)
+             //esc key를 다시 한번 누르면 카메라 이동을 하게 한다 isCannotMove = false (!isCannotMove)
+             if (Input.GetKeyDown(KeyCode.Escape))
+             {
+                 isCannotMove = !isCannotMove;   //토글 기능
+             }
+ 
+             //isCannotMove가 true이면 return 아래 코드를 실행하지 말라
+             if (isCannotMove)
+                 return;
+                 return;*/
 
             //W,A,S,D 키 ( 또는 키보드의 상하좌우 화살표 ) 값을 받아
             if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))

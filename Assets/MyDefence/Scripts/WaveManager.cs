@@ -53,6 +53,8 @@ namespace MyDefence
         {
             waveCount++;
 
+            PlayerStats.Rounds++;
+
             for (int i = 0; i < waveCount; i++)
             {
                 //타이머 기능

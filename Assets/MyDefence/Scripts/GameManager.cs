@@ -22,14 +22,19 @@ namespace MyDefence
             get { return isGameOver; }
         }
         #endregion
+        private void Start()
+        {
+            //초기화
+            isGameOver = false;
 
+        }
         private void Update()
         {
             //GameOver Check
-            //if (isGameOver)
-            //    return;
+            if (IsGameOver)
+                return;
 
-            if(PlayerStats.Lives <= 0)
+            if (PlayerStats.Lives <= 0)
             {
                 GameOver();
             }
@@ -69,7 +74,7 @@ namespace MyDefence
                  gameOver.SetActive(false);
              }*/
             isGameOver = true;
-            gameOverUI.SetActive(!gameOverUI.activeSelf);
+            gameOverUI.SetActive(true);
         }
 
         void PauseUI()

@@ -19,9 +19,6 @@ namespace MyDefence
         [SerializeField]  private readonly int startLives = 10;
 
         public TextMeshProUGUI livesText;
-
-        [SerializeField] private readonly int startRound = 0;
-        public static int round;
         #endregion
 
         #region Property
@@ -34,10 +31,8 @@ namespace MyDefence
         {
             get { return lives ; }
         }
-        public static int Rounds
-        {
-            get { return round; }
-        }
+        //Round 카운트
+        public static int Rounds { get; set; }
         #endregion
 
         //소지금 초기값 400
@@ -45,6 +40,7 @@ namespace MyDefence
         {
             money = startMoney;
             lives = startLives;
+            Rounds = 0;
         }
         public void Update()
         {
