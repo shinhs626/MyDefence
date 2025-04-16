@@ -124,3 +124,9 @@ MonoBehaviour:
   moneyMaterial: {fileID: 2100000, guid: 9246cf7e111d16d468735954772b617c, type: 2}
   changeMaterial: {fileID: 2100000, guid: a968ec613e63e874698c28b3fdce8f49, type: 2}
   buildEffectPrefab: {fileID: 4402200367932394241, guid: eb3d3594aafa8a0429a346892d524f65, type: 3}
+  sellEffectPrefab: {fileID: 4402200367932394241, guid: dbfd167f0f3f08e4ea8668cc4baa4782, type: 3}
+  bluePrint:
+    towerPrefab: {fileID: 0}
+    cost: 0
+    upgradePrefab: {fileID: 0}
+    upgradeCost: 0

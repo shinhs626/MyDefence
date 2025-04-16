@@ -20,6 +20,8 @@ namespace MyDefence
         public Material changeMaterial;
         //타워 설치된 후 이펙트
         public GameObject buildEffectPrefab;
+        //타워 판매 후 이펙트
+        public GameObject sellEffectPrefab;
 
         //타일의 Renderer
         private new Renderer renderer;
@@ -128,6 +130,26 @@ namespace MyDefence
 
             //건설하고 남은돈
             Debug.Log($"현재 비용 : {PlayerStats.money}");
+        }
+        public void SellTower()
+        {
+            if (IsUpgrade)
+            {
+                ////판매 되었을때 들어오는 에너지((기존 타워 값 + 업그레이드 비용) /2)
+                PlayerStats.AddMoney((bluePrint.cost + bluePrint.upgradeCost) / 2);
+            }
+            else
+            {
+                //판매 되었을때 들어오는 에너지(기존 타워 값의 /2)
+                PlayerStats.AddMoney(bluePrint.cost / 2);
+            }
+               
+            //타워 건설 이펙트 실행 후 2초후 삭제
+            GameObject effectGo = Instantiate(sellEffectPrefab, this.transform.position, Quaternion.identity);
+            Destroy(effectGo, 2f);
+
+            //타워 킬
+            Destroy(tower);
         }
 
         private void OnMouseEnter()

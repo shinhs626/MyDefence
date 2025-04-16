@@ -2021,7 +2021,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 538950637}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1473251875}
+        m_TargetAssemblyTypeName: MyDefence.TileUI, Assembly-CSharp
+        m_MethodName: SellTower
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &538950637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2407,13 +2419,13 @@ MonoBehaviour:
   missileTower:
     towerPrefab: {fileID: 7144542617634557869, guid: b30cbf61c92bba843971c99b9d60805f, type: 3}
     cost: 250
-    upgradePrefab: {fileID: 0}
-    upgradeCost: 0
+    upgradePrefab: {fileID: 5066028650520885774, guid: 955a510195ec580469ebaa074c4fc5c8, type: 3}
+    upgradeCost: 375
   laserTower:
     towerPrefab: {fileID: 747234759461752361, guid: 400bf5a2c61139743890e1f2b6cbb6a4, type: 3}
     cost: 350
-    upgradePrefab: {fileID: 0}
-    upgradeCost: 0
+    upgradePrefab: {fileID: 8997859024998297757, guid: 55c906e94de4f9648a9a1a847539fc29, type: 3}
+    upgradeCost: 525
 --- !u!1001 &634349843
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5864,6 +5876,7 @@ MonoBehaviour:
   offset: {fileID: 976516485}
   upgradeCost: {fileID: 1611484004}
   upgradeButton: {fileID: 864881419}
+  sellCost: {fileID: 2020620583}
 --- !u!1001 &1517670795
 PrefabInstance:
   m_ObjectHideFlags: 0
