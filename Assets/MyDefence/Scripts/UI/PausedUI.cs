@@ -50,7 +50,7 @@ namespace MyDefence
 
         public void Menu()
         {
-            Debug.Log("Goto Menu!!!");
+            SceneManager.LoadScene("MainMenu");
         }
     }
 }

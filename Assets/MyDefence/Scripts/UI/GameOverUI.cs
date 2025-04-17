@@ -24,7 +24,7 @@ namespace MyDefence
 
         public void MenuButton()
         {
-            Debug.Log("Go to Menu");
+            SceneManager.LoadScene("MainMenu");
         }
     }
 

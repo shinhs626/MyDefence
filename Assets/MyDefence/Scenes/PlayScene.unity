@@ -203,7 +203,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1729428181}
         m_TargetAssemblyTypeName: MyDefence.PausedUI, Assembly-CSharp
         m_MethodName: Menu
         m_Mode: 1
@@ -4360,7 +4360,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1729428181}
         m_TargetAssemblyTypeName: MyDefence.PausedUI, Assembly-CSharp
         m_MethodName: Continue
         m_Mode: 1
@@ -5169,7 +5169,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1729428181}
         m_TargetAssemblyTypeName: MyDefence.PausedUI, Assembly-CSharp
         m_MethodName: Retry
         m_Mode: 1
