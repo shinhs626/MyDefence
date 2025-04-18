@@ -345,6 +345,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 439498161}
+  - component: {fileID: 439498162}
   m_Layer: 0
   m_Name: WorldObjects
   m_TagString: Untagged
@@ -369,6 +370,21 @@ Transform:
   - {fileID: 5420335342098437112}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &439498162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 439498160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e28ab591f38cdeb47a25e7b6d1f6ecd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particleTimer: 4
+  energyParticle: {fileID: 4354095951433775430}
+  laserParticle: {fileID: 891456678735068763}
 --- !u!1 &469829416
 GameObject:
   m_ObjectHideFlags: 0
@@ -35195,6 +35211,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6510644819072982150}
+  - component: {fileID: 6510644819072982151}
   m_Layer: 10
   m_Name: PartToRotate
   m_TagString: Untagged
@@ -35219,6 +35236,19 @@ Transform:
   - {fileID: 296506099670774034}
   m_Father: {fileID: 5420335342098437112}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6510644819072982151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6500689592292535922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44c397df47832a14db1018d6cd9cfaed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: {x: 0, y: 0.3, z: 0}
 --- !u!4 &6627179695169689077
 Transform:
   m_ObjectHideFlags: 0

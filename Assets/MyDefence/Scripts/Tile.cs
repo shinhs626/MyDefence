@@ -150,6 +150,11 @@ namespace MyDefence
 
             //타워 킬
             Destroy(tower);
+
+            // 상태 초기화
+            tower = null;
+            IsUpgrade = false;
+            bluePrint = null;
         }
 
         private void OnMouseEnter()
