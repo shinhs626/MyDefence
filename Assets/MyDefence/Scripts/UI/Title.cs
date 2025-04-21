@@ -7,6 +7,10 @@ namespace MyDefence
     public class Title : MonoBehaviour
     {
         #region Field
+        public SceneFader fader;
+        [SerializeField]
+        private string loadToScene = "MainMenu";
+
         public GameObject AnyKeyText;
         private bool isSceneChanging = false;
         #endregion
@@ -21,7 +25,7 @@ namespace MyDefence
             if (AnyKeyText.activeSelf && Input.anyKeyDown)
             {
                 isSceneChanging = true;
-                SceneManager.LoadScene("MainMenu");
+                fader.FadeTo(loadToScene);
             }
 
         }
@@ -41,7 +45,7 @@ namespace MyDefence
             if (!isSceneChanging)
             {
                 isSceneChanging = true;
-                SceneManager.LoadScene("MainMenu");
+                fader.FadeTo(loadToScene);
             }
         }
     }

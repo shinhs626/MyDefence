@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8544659737827385688}
   - component: {fileID: 2866793635401565774}
   m_Layer: 10
-  m_Name: DeathImpace
+  m_Name: DeathImpace_Tough
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4847,7 +4847,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8aa3ccda6831d4246b6916b517aa390a, type: 2}
+  - {fileID: 2100000, guid: 638b6579539513647967ea49aa6482e0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

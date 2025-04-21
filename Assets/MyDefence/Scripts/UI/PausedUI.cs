@@ -7,6 +7,8 @@ namespace MyDefence
     public class PausedUI : MonoBehaviour
     {
         #region Field
+        public SceneFader fader;
+
         //UI 오브젝트
         public GameObject pausedUI;
         #endregion
@@ -45,7 +47,8 @@ namespace MyDefence
             Time.timeScale = 1f;
 
             //해당(자기 자신) 씬을 다시 부른다
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);    //씬이름으로 로드
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().name);    //씬이름으로 로드
+            fader.FadeTo(SceneManager.GetActiveScene().name);
         }
 
         public void Menu()

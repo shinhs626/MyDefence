@@ -7,6 +7,10 @@ namespace MyDefence
     public class GameOverUI : MonoBehaviour
     {
         #region Field
+        public SceneFader fader;
+        [SerializeField]
+        private string loadToScene = "MainMenu";
+
         public TextMeshProUGUI roundText;
         #endregion
 
@@ -18,13 +22,13 @@ namespace MyDefence
         public void RetryButton()
         {
             //해당(자기 자신) 씬을 다시 부른다
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);    //씬이름으로 로드
+            fader.FadeTo(SceneManager.GetActiveScene().name);    //씬이름으로 로드
             //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);    //빌드 인덱스로 로드
         }
 
         public void MenuButton()
         {
-            SceneManager.LoadScene("MainMenu");
+            fader.FadeTo(loadToScene);
         }
     }
 

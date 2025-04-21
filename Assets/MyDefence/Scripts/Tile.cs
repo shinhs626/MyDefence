@@ -99,7 +99,7 @@ namespace MyDefence
             buildManager.SetTowerToBuild(null);
 
             //건설하고 남은돈
-            Debug.Log($"현재 비용 : {PlayerStats.money}");
+            //Debug.Log($"현재 비용 : {PlayerStats.money}");
         }
 
         //타워 업그레이드
@@ -129,7 +129,7 @@ namespace MyDefence
             buildManager.SetTowerToBuild(null);
 
             //건설하고 남은돈
-            Debug.Log($"현재 비용 : {PlayerStats.money}");
+            //Debug.Log($"현재 비용 : {PlayerStats.money}");
         }
         public void SellTower()
         {

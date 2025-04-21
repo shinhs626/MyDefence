@@ -22,6 +22,9 @@ namespace MyDefence
 
         [SerializeField] private float startHealth = 100f;
 
+        //죽음 체크
+        private bool isDeath = false;
+
         //리워드 골드
         [SerializeField] private int rewardGold = 50;
 
@@ -66,7 +69,7 @@ namespace MyDefence
             if(wayPointIndex == WayPoints.wayPoints.Length - 1)
             {
                 PlayerStats.UseLife(1);
-                Debug.Log($"종점 도착");
+                WaveManager.enemyAlive--;
                 Destroy(this.gameObject);
                 return;
             }
@@ -86,8 +89,8 @@ namespace MyDefence
 
             //데미지 효과(VFX,SFX)
 
-            //죽음 체크
-            if (health <= 0f)
+            //죽음 체크, 두번 죽는것 체크
+            if (health <= 0f && isDeath == false)
             {
                 Die();
             }
@@ -95,6 +98,9 @@ namespace MyDefence
         //죽음 처리
         private void Die()
         {
+            //죽음
+            isDeath = true;
+
             //보상, 벌
             //kill 하면 리워드로 50 Gold 지급
             PlayerStats.AddMoney(rewardGold);
@@ -103,6 +109,9 @@ namespace MyDefence
             //죽는 파티클 이펙트 만들어서 처리
             GameObject effectGo = Instantiate(deathImpactPrefab, this.transform.position, Quaternion.identity);
             Destroy(effectGo, 2f);
+
+            //Enemy 카운팅
+            WaveManager.enemyAlive--;
 
             //킬
             Destroy(this.gameObject, 0f);

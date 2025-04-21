@@ -1,4 +1,3 @@
-using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -6,10 +5,16 @@ namespace MyDefence
 {
     public class MainMenu : MonoBehaviour
     {
+        #region Field
+        public SceneFader fader;
+        [SerializeField]
+        private string loadToScene = "PlayScene";
+        #endregion
+
         public void PlayGame()
         {
             Debug.Log("게임 시작");
-            SceneManager.LoadScene("PlayScene");
+            fader.FadeTo(loadToScene);
         }
         public void QuitGame()
         {
